@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { API_URL } from "../api";
+import { getDestinationImage } from "../destinationImages";
 
 const emptyForm = {
   name: "",
@@ -606,8 +607,7 @@ function Dashboard() {
 
                   <img
                     src={
-                      destination.image ||
-                      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=500&q=80"
+                      getDestinationImage(destination, 500)
                     }
                     alt={destination.name}
                   />

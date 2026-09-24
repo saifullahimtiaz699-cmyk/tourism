@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { getDestinationImage } from "../destinationImages";
 
 function DestinationCard({ destination }) {
   return (
@@ -6,8 +7,7 @@ function DestinationCard({ destination }) {
 
       <img
         src={
-          destination.image ||
-          "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=80"
+          getDestinationImage(destination)
         }
         alt={destination.name}
       />

@@ -5,6 +5,7 @@ import {
   useParams
 } from "react-router-dom";
 import { API_URL } from "../api";
+import { getDestinationImage } from "../destinationImages";
 
 function DestinationDetails() {
 
@@ -154,8 +155,7 @@ function DestinationDetails() {
         <img
           className="details-image"
           src={
-            destination.image ||
-            "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80"
+            getDestinationImage(destination, 1200)
           }
           alt={destination.name}
         />
