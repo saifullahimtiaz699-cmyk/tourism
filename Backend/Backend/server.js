@@ -5,6 +5,8 @@ const dotenv = require("dotenv");
 const path = require("path");
 
 const destinationRoutes = require("./routes/destinationRoutes");
+const Destination = require("./models/Destination");
+const seedMissingDestinations = require("./seedDestinations");
 
 dotenv.config({ path: path.join(__dirname, ".env") });
 dotenv.config();
@@ -90,6 +92,7 @@ async function startServer() {
   await mongoose.connect(mongoUri, {
     serverSelectionTimeoutMS: 10_000,
   });
+  await seedMissingDestinations(Destination);
 
   const server = app.listen(PORT, () => {
     console.log(`Server running on port ${PORT} (release ${RELEASE})`);
