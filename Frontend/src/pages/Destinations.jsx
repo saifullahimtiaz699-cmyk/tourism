@@ -3,7 +3,7 @@ import DestinationCard from "../component/DestinationCard";
 
 const API_URL =
   import.meta.env.VITE_API_URL ||
-  "http://localhost:5000/api";
+  (import.meta.env.DEV ? "http://localhost:5000/api" : "");
 
 function Destinations() {
 
@@ -22,6 +22,10 @@ function Destinations() {
 
         setLoading(true);
         setError("");
+
+        if (!API_URL) {
+          throw new Error("The API URL is not configured for this deployment.");
+        }
 
         const response = await fetch(
           `${API_URL}/destinations`
@@ -166,8 +170,7 @@ function Destinations() {
           <br />
 
           <small>
-            Make sure your backend is running
-            on port 5000.
+            Check the deployed backend URL and GitHub Actions VITE_API_URL secret.
           </small>
 
         </div>

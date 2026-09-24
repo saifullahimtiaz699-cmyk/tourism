@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const API_URL =
   import.meta.env.VITE_API_URL ||
-  "http://localhost:5000/api";
+  (import.meta.env.DEV ? "http://localhost:5000/api" : "");
 
 const emptyForm = {
   name: "",
@@ -47,6 +47,10 @@ function Dashboard() {
     const loadDestinations = async () => {
 
       try {
+
+        if (!API_URL) {
+          throw new Error("The API URL is not configured for this deployment.");
+        }
 
         const response = await fetch(
           `${API_URL}/destinations`,
