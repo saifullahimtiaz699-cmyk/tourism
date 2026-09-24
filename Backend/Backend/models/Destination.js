@@ -13,6 +13,7 @@ const destinationSchema = new mongoose.Schema(
     location: {
       type: String,
       required: [true, "Location is required"],
+      maxlength: [150, "Location cannot exceed 150 characters"],
       trim: true,
     },
 
@@ -40,12 +41,14 @@ const destinationSchema = new mongoose.Schema(
     image: {
       type: String,
       required: [true, "Image URL is required"],
+      match: [/^https?:\/\//i, "Image must be a valid HTTP(S) URL"],
       trim: true,
     },
 
     bestTime: {
       type: String,
       required: [true, "Best time is required"],
+      maxlength: [100, "Best time cannot exceed 100 characters"],
       trim: true,
     },
 
@@ -53,6 +56,10 @@ const destinationSchema = new mongoose.Schema(
       type: Number,
       required: [true, "Budget is required"],
       min: [1000, "Budget must be at least 1000"],
+      validate: {
+        validator: Number.isInteger,
+        message: "Budget must be a whole number",
+      },
     },
   },
   {

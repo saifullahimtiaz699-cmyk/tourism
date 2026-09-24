@@ -41,16 +41,16 @@ function Dashboard() {
   const [errors, setErrors] =
     useState({});
 
-  const loadDestinations =
-    async () => {
+  useEffect(() => {
+    const controller = new AbortController();
+
+    const loadDestinations = async () => {
 
       try {
 
-        setLoading(true);
-        setError("");
-
         const response = await fetch(
-          `${API_URL}/destinations`
+          `${API_URL}/destinations`,
+          { signal: controller.signal }
         );
 
         if (!response.ok) {
@@ -69,6 +69,8 @@ function Dashboard() {
 
       } catch (err) {
 
+        if (err.name === "AbortError") return;
+
         setError(
           err.message ||
           "Something went wrong."
@@ -81,8 +83,9 @@ function Dashboard() {
       }
     };
 
-  useEffect(() => {
     loadDestinations();
+
+    return () => controller.abort();
   }, []);
 
   const validate = () => {

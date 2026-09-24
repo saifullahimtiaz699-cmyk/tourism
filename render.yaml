@@ -8,5 +8,7 @@ services:
     envVars:
       - key: MONGO_URI
         sync: false
+      - key: FRONTEND_URL
+        value: https://saifullahimtiaz699-cmyk.github.io/tourism
       - key: NODE_ENV
         value: production

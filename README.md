@@ -11,7 +11,7 @@ npm install
 npm start
 ```
 
-The API runs at `http://localhost:5000`. The health endpoint is `GET /health`, and destinations are available at `/api/destinations`.
+The API runs at `http://localhost:5000`. The health endpoint is `GET /health`, and destinations are available at `/api/destinations`. The health endpoint returns HTTP 503 until MongoDB is connected.
 
 To run the frontend:
 
@@ -36,3 +36,5 @@ The deploy workflow triggers Render on pushes to `main`. To enable it:
 5. Push the repository to GitHub on the `main` branch.
 
 GitHub Pages publishes the frontend automatically from the `main` branch using the Pages workflow. In the repository settings, set Pages to **GitHub Actions**. Add the repository secret `VITE_API_URL` with the deployed backend URL ending in `/api`, for example `https://your-api.onrender.com/api`.
+
+For production, set `FRONTEND_URL` in Render to the exact GitHub Pages origin and keep `MONGO_URI` only in Render environment variables. The current Login screen is presentation-only; write endpoints should receive authentication before exposing the dashboard publicly.

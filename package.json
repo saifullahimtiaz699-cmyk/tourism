@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node Backend/Backend/server.js",
-    "check:backend": "node --check Backend/Backend/server.js",
+    "check:backend": "node --check Backend/server.js && node --check Backend/Backend/server.js",
     "test": "npm run check:backend"
   },
   "keywords": [],
