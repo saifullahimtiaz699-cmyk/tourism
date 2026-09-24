@@ -38,6 +38,8 @@ const seedDestinations = destinationNames.map(([name, location, category]) => ({
   image:
     name === "Multan"
       ? "https://saifullahimtiaz699-cmyk.github.io/tourism/multan.webp"
+      : name === "Gwadar"
+        ? "https://saifullahimtiaz699-cmyk.github.io/tourism/gwadar.webp"
       : `https://placehold.co/800x600/jpg?text=${encodeURIComponent(name)}`,
   bestTime: "April to October",
   budget: 15000,
@@ -61,6 +63,10 @@ async function seedMissingDestinations(Destination) {
   await Destination.updateOne(
     { name: "Multan" },
     { $set: { image: "https://saifullahimtiaz699-cmyk.github.io/tourism/multan.webp" } }
+  );
+  await Destination.updateOne(
+    { name: "Gwadar" },
+    { $set: { image: "https://saifullahimtiaz699-cmyk.github.io/tourism/gwadar.webp" } }
   );
 }
 
