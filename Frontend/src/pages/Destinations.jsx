@@ -1,9 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import DestinationCard from "../component/DestinationCard";
-
-const API_URL =
-  import.meta.env.VITE_API_URL ||
-  (import.meta.env.DEV ? "http://localhost:5000/api" : "");
+import { API_URL } from "../api";
 
 function Destinations() {
 

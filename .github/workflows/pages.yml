@@ -41,6 +41,13 @@ jobs:
             echo "VITE_API_URL is required for a production Pages build"
             exit 1
           fi
+          case "$VITE_API_URL" in
+            http://*|https://*) ;;
+            *)
+              echo "VITE_API_URL must be an absolute HTTP(S) URL"
+              exit 1
+              ;;
+          esac
           npm run build
           cp dist/index.html dist/404.html
 

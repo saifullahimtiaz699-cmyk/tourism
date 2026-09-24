@@ -9,6 +9,6 @@ services:
       - key: MONGO_URI
         sync: false
       - key: FRONTEND_URL
-        value: https://saifullahimtiaz699-cmyk.github.io/tourism
+        value: https://saifullahimtiaz699-cmyk.github.io
       - key: NODE_ENV
         value: production
