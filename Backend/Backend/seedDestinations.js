@@ -40,7 +40,15 @@ const seedDestinations = destinationNames.map(([name, location, category]) => ({
       ? "https://saifullahimtiaz699-cmyk.github.io/tourism/multan.webp"
       : name === "Gwadar"
         ? "https://raw.githubusercontent.com/saifullahimtiaz699-cmyk/tourism/main/Frontend/public/gwadar.webp"
-      : `https://placehold.co/800x600/jpg?text=${encodeURIComponent(name)}`,
+        : name === "Chitral"
+          ? "https://raw.githubusercontent.com/saifullahimtiaz699-cmyk/tourism/main/Frontend/public/chitral.webp"
+          : name === "Taxila"
+            ? "https://raw.githubusercontent.com/saifullahimtiaz699-cmyk/tourism/main/Frontend/public/taxila.webp"
+            : name === "Shogran"
+              ? "https://raw.githubusercontent.com/saifullahimtiaz699-cmyk/tourism/main/Frontend/public/shogran.webp"
+              : name === "Mohenjo-daro"
+                ? "https://raw.githubusercontent.com/saifullahimtiaz699-cmyk/tourism/main/Frontend/public/mohenjo-daro.gif"
+                : `https://placehold.co/800x600/jpg?text=${encodeURIComponent(name)}`,
   bestTime: "April to October",
   budget: 15000,
 }));
@@ -72,6 +80,22 @@ async function seedMissingDestinations(Destination) {
           "https://raw.githubusercontent.com/saifullahimtiaz699-cmyk/tourism/main/Frontend/public/gwadar.webp",
       },
     }
+  );
+  const imageUpdates = {
+    Chitral:
+      "https://raw.githubusercontent.com/saifullahimtiaz699-cmyk/tourism/main/Frontend/public/chitral.webp",
+    Taxila:
+      "https://raw.githubusercontent.com/saifullahimtiaz699-cmyk/tourism/main/Frontend/public/taxila.webp",
+    Shogran:
+      "https://raw.githubusercontent.com/saifullahimtiaz699-cmyk/tourism/main/Frontend/public/shogran.webp",
+    "Mohenjo-daro":
+      "https://raw.githubusercontent.com/saifullahimtiaz699-cmyk/tourism/main/Frontend/public/mohenjo-daro.gif",
+  };
+
+  await Promise.all(
+    Object.entries(imageUpdates).map(([name, image]) =>
+      Destination.updateOne({ name }, { $set: { image } })
+    )
   );
 }
 
