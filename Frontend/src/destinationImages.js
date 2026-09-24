@@ -8,6 +8,9 @@ const destinationImages = {
   Taxila: `${repositoryAssetBase}/taxila.webp`,
   Shogran: `${repositoryAssetBase}/shogran.webp`,
   "Mohenjo-daro": `${repositoryAssetBase}/mohenjo-daro.gif`,
+  "Deosai National Park": `${repositoryAssetBase}/deosai-national-park.webp`,
+  "Kalash Valley": `${repositoryAssetBase}/kalash-valley.webp`,
+  "Attabad Lake": `${repositoryAssetBase}/attabad-lake.webp`,
 };
 
 export function getDestinationImage(destination, size = 900) {

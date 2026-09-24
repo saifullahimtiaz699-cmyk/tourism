@@ -48,6 +48,12 @@ const seedDestinations = destinationNames.map(([name, location, category]) => ({
               ? "https://raw.githubusercontent.com/saifullahimtiaz699-cmyk/tourism/main/Frontend/public/shogran.webp"
               : name === "Mohenjo-daro"
                 ? "https://raw.githubusercontent.com/saifullahimtiaz699-cmyk/tourism/main/Frontend/public/mohenjo-daro.gif"
+                : name === "Deosai National Park"
+                  ? "https://raw.githubusercontent.com/saifullahimtiaz699-cmyk/tourism/main/Frontend/public/deosai-national-park.webp"
+                  : name === "Kalash Valley"
+                    ? "https://raw.githubusercontent.com/saifullahimtiaz699-cmyk/tourism/main/Frontend/public/kalash-valley.webp"
+                    : name === "Attabad Lake"
+                      ? "https://raw.githubusercontent.com/saifullahimtiaz699-cmyk/tourism/main/Frontend/public/attabad-lake.webp"
                 : `https://placehold.co/800x600/jpg?text=${encodeURIComponent(name)}`,
   bestTime: "April to October",
   budget: 15000,
@@ -90,6 +96,12 @@ async function seedMissingDestinations(Destination) {
       "https://raw.githubusercontent.com/saifullahimtiaz699-cmyk/tourism/main/Frontend/public/shogran.webp",
     "Mohenjo-daro":
       "https://raw.githubusercontent.com/saifullahimtiaz699-cmyk/tourism/main/Frontend/public/mohenjo-daro.gif",
+    "Deosai National Park":
+      "https://raw.githubusercontent.com/saifullahimtiaz699-cmyk/tourism/main/Frontend/public/deosai-national-park.webp",
+    "Kalash Valley":
+      "https://raw.githubusercontent.com/saifullahimtiaz699-cmyk/tourism/main/Frontend/public/kalash-valley.webp",
+    "Attabad Lake":
+      "https://raw.githubusercontent.com/saifullahimtiaz699-cmyk/tourism/main/Frontend/public/attabad-lake.webp",
   };
 
   await Promise.all(
