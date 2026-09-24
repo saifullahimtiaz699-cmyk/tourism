@@ -35,7 +35,10 @@ const seedDestinations = destinationNames.map(([name, location, category]) => ({
   location,
   category,
   description: `${name} is a remarkable Pakistani destination known for its scenery, culture, and memorable experiences for travelers.`,
-  image: `https://placehold.co/800x600/jpg?text=${encodeURIComponent(name)}`,
+  image:
+    name === "Multan"
+      ? "https://saifullahimtiaz699-cmyk.github.io/tourism/multan.webp"
+      : `https://placehold.co/800x600/jpg?text=${encodeURIComponent(name)}`,
   bestTime: "April to October",
   budget: 15000,
 }));
@@ -54,6 +57,11 @@ async function seedMissingDestinations(Destination) {
     await Destination.insertMany(missing);
     console.log(`Seeded ${missing.length} destinations`);
   }
+
+  await Destination.updateOne(
+    { name: "Multan" },
+    { $set: { image: "https://saifullahimtiaz699-cmyk.github.io/tourism/multan.webp" } }
+  );
 }
 
 module.exports = seedMissingDestinations;
