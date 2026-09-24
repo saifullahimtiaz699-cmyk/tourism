@@ -34,3 +34,5 @@ The deploy workflow triggers Render on pushes to `main`. To enable it:
 3. Add `MONGO_URI` in Render environment variables.
 4. Create a Render deploy hook and add it to GitHub as the repository secret `RENDER_DEPLOY_HOOK_URL`.
 5. Push the repository to GitHub on the `main` branch.
+
+GitHub Pages publishes the frontend automatically from the `main` branch using the Pages workflow. In the repository settings, set Pages to **GitHub Actions**. Add the repository secret `VITE_API_URL` with the deployed backend URL ending in `/api`, for example `https://your-api.onrender.com/api`.

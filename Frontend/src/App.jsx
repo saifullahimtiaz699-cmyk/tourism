@@ -12,7 +12,7 @@ import Footer from "./component/Footer";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Navbar />
 
       <main>
