@@ -12,7 +12,7 @@ const destinationImages = {
   "Attabad Lake": publicAsset("attabad-lake.webp"),
   "Kumrat Valley": publicAsset("attabad-lake.webp"),
   Galiyat: publicAsset("attabad-lake.webp"),
-  "Fairy Meadows": publicAsset("fairy-meadows.webp"),
+  "Fairy Meadows": publicAsset("fairy-meadows.jpg"),
   "Swat Valley": publicAsset("swat-valley.webp"),
 };
 
