@@ -1,16 +1,19 @@
-const repositoryAssetBase =
-  "https://raw.githubusercontent.com/saifullahimtiaz699-cmyk/tourism/main/Frontend/public";
+const publicAsset = (filename) =>
+  `${import.meta.env.BASE_URL}${filename}`;
 
 const destinationImages = {
-  Multan: `${repositoryAssetBase}/multan.webp`,
-  Gwadar: `${repositoryAssetBase}/gwadar.webp`,
-  Chitral: `${repositoryAssetBase}/chitral.webp`,
-  Taxila: `${repositoryAssetBase}/taxila.webp`,
-  Shogran: `${repositoryAssetBase}/shogran.webp`,
-  "Mohenjo-daro": `${repositoryAssetBase}/mohenjo-daro.gif`,
-  "Deosai National Park": `${repositoryAssetBase}/deosai-national-park.webp`,
-  "Kalash Valley": `${repositoryAssetBase}/kalash-valley.webp`,
-  "Attabad Lake": `${repositoryAssetBase}/attabad-lake.webp`,
+  Multan: publicAsset("multan.webp"),
+  Gwadar: publicAsset("gwadar.webp"),
+  Chitral: publicAsset("chitral.webp"),
+  Taxila: publicAsset("taxila.webp"),
+  Shogran: publicAsset("shogran.webp"),
+  "Deosai National Park": publicAsset("deosai-national-park.webp"),
+  "Kalash Valley": publicAsset("kalash-valley.webp"),
+  "Attabad Lake": publicAsset("attabad-lake.webp"),
+  "Kumrat Valley": publicAsset("attabad-lake.webp"),
+  Galiyat: publicAsset("attabad-lake.webp"),
+  "Fairy Meadows": publicAsset("attabad-lake.webp"),
+  "Swat Valley": publicAsset("swat-valley.webp"),
 };
 
 export function getDestinationImage(destination, size = 900) {
