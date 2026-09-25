@@ -10,6 +10,7 @@ const destinationImages = {
   "Deosai National Park": publicAsset("deosai-national-park.webp"),
   "Kalash Valley": publicAsset("kalash-valley.webp"),
   "Attabad Lake": publicAsset("attabad-lake.webp"),
+  "Naltar Valley": publicAsset("naltar-valley.jpg"),
   "Kumrat Valley": publicAsset("attabad-lake.webp"),
   Galiyat: publicAsset("attabad-lake.webp"),
   "Fairy Meadows": publicAsset("fairy-meadows.jpg"),
